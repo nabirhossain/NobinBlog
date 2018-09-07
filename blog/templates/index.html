@@ -5,9 +5,9 @@
 {% block content %}
 	<!-- END #fh5co-header -->
 	<!-- -->
-    <div class="allpost">
+    <div class="allpost clearfix">
     {% for p in items %} <!--ফর লুপের মাধ্যমে post_list ভেরিয়েবলের সকল পোষ্টকে আমাদের ট্যামপ্লেটে প্রদর্শন করিয়েছি-->
-        <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box clearfix">
+        <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
             <figure>
                 <a href="{% url 'blog:post_detail' id=p.id %}">
                     <img src="{{ p.post_image.url }}" alt="Image" class="img-responsive" ><!--  ফর লুপে নেওয়া নতুন ভেরিয়েবল p এর মধ্যে ইমেজ  ফিল্ডের url দিয়েছি -->
