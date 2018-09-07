@@ -1,5 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
+
 
 # Create your models here.
 class author(models.Model):
@@ -20,7 +24,7 @@ class post(models.Model):
     post_author = models.ForeignKey(author, on_delete=models.CASCADE)
     post_title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
-    post_body = models.TextField()
+    post_body = RichTextUploadingField()
     post_image = models.FileField()
     post_category = models.ForeignKey(category, on_delete=models.CASCADE)
     posted_on = models.DateTimeField(auto_now=False, auto_now_add=True)
