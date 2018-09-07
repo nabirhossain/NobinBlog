@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="539f9e29-908d-4d7a-bfce-8c30b78688bc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/blog/templates/confirmation_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/confirmation_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -104,11 +104,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmation_email.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/blog/templates/confirmation_email.html">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+              <caret line="4" column="90" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
+              <folding>
+                <element signature="e#3744#3750#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,7 +148,6 @@
         <option value="$PROJECT_DIR$/blog/forms.py" />
         <option value="$PROJECT_DIR$/blog/templates/AddTopic.html" />
         <option value="$PROJECT_DIR$/blog/templates/CreateTopics.html" />
-        <option value="$PROJECT_DIR$/blog/templates/base.html" />
         <option value="$PROJECT_DIR$/blog/templates/AllTopic.html" />
         <option value="$PROJECT_DIR$/blog/token.py" />
         <option value="$PROJECT_DIR$/blog/templates/login.html" />
@@ -159,6 +161,7 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/djblog/settings.py" />
         <option value="$PROJECT_DIR$/blog/templates/confirmation_email.html" />
+        <option value="$PROJECT_DIR$/blog/templates/base.html" />
       </list>
     </option>
   </component>
@@ -629,16 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#3744#3750#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -670,6 +663,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blog/templates/confirmation_email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/djblog/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -680,10 +680,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/templates/confirmation_email.html">
+    <entry file="file://$PROJECT_DIR$/blog/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <caret line="4" column="90" selection-start-line="4" selection-start-column="90" selection-end-line="4" selection-end-column="90" />
+          <folding>
+            <element signature="e#3744#3750#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
