@@ -29,21 +29,23 @@ def index(request):
         )
     paginator = Paginator(post1, 4)  #  প্রতি পেজে ৪ টি করে পোষ্ট দেখানো হবে
     page = request.GET.get('page')
-    #try:
-    #    post1 = paginator.page(page)
-    #except PageNotAnInteger:
-    #    post1 = paginator.page(1)
-    #except EmptyPage:
-    #    post1 = paginator.page(paginator.num_pages)
-    #index = post1.number - 1
-    #max_index = len(paginator.page_range)
-    #start_index = index - 5 if index >= 5 else 0
-    #end_index = index + 5 if index <= max_index - 5 else max_index
-    #TotalPost = paginator.page_range[start_index:end_index]
-    TotalPost = paginator.get_page(page)
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        items = paginator.page(1)
+    except EmptyPage:
+        items = paginator.page(paginator.num_pages)
+    index = items.number - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 2 if index >= 2 else 0
+    end_index = index + 2 if index <= max_index else max_index
+    page_range = paginator.page_range[start_index:end_index]
+    #TotalPost = paginator.get_page(page)
     context = {
         #'post1':post1       #  কন্টেক্সট ভেরিয়েবলে সেগুলো ষ্টোর করা
-        'post1':TotalPost       # post1 হিসেবে ইনডেক্স ট্যামপ্লেটে ভ্যেরিয়েবল পাঠানো হয়েছে
+        'post1':post1,       # post1 হিসেবে ইনডেক্স ট্যামপ্লেটে ভ্যেরিয়েবল পাঠানো হয়েছে
+        'items': items,
+        'page_range': page_range,
     }
     return render(request,'index.html', context) #  কনটেক্সট ভেরিয়েবলটি ট্যামপ্লেটে পাঠানো
 
@@ -52,7 +54,7 @@ def getAuthor(request, name):
     p_author = get_object_or_404(User, username=name)  # ইউজারের নাম ইউজার মডেল থেকে নিয়ে এসে p_author ভ্যেরিয়াবলে রাখা হয়েছে
     auth = get_object_or_404(author, auth_name=p_author.id) #  পোষ্ট দাতার নাম author মডেল থেকে নিয়ে এসে auth ভ্যেরিয়াবলে রাখা হয়েছে
     post1 = post.objects.filter(post_author=auth.id) #  post_author এর  আইডি অনুসারে post মডেল থেকে ফিল্টার করে পোষ্টগুলো নিয়ে এসে post1 ভ্যেরিয়াবলে রাখা হয়েছে
-    paginator = Paginator(post1, 8)  # প্রতি পেজে ৪ টি করে পোষ্ট দেখানো হবে
+    paginator = Paginator(post1, 4)  # প্রতি পেজে ৪ টি করে পোষ্ট দেখানো হবে
     page = request.GET.get('page')
     TotalPost = paginator.get_page(page)
     context = {                                       # auth এবং post1 ভ্যারিয়েবলগুলো কন্টেক্সট ভ্যেরিয়েবলে ঢুকিয়ে দেওয়া হয়েছে
@@ -77,21 +79,20 @@ def PostDetail(request, id):
 def PostTopic(request, name):
     topic = get_object_or_404(category, name=name)       #  ক্যাটাগরি মডেল থেকে ক্যাটাগরির নাম উপরের name প্যারামিটারের যুক্ত করে দিয়েছি
     post1 = post.objects.filter(post_category=topic.id)  #  একই ক্যাটাগরির পোষ্ট দেখার জন্য ফিল্টারের মধ্যে post_category মডেলের সাথে ক্যাটাগরির id যুক্ত করে দিয়েছি
-    #paginator = Paginator(post1, 8)  # প্রতি পেজে ৪ টি করে পোষ্ট দেখানো হবে
-    #page = request.GET.get('page')
-    #try:
-    #    post1 = paginator.page(page)
-    #except PageNotAnInteger:
-    #    post1 = paginator.page(1)
-    #except EmptyPage:
-    #    post1 = paginator.page(paginator.num_pages)
-    #index = post1.number - 1
-    #max_index = len(paginator.page_range)
-    #start_index = index - 5 if index >= 5 else 0
-    #end_index = index + 5 if index <= max_index - 5 else max_index
-    #TotalPost = paginator.page_range[start_index:end_index]
-    #TotalPost = paginator.get_page(page)
-    return render(request,'category.html', {"post1":post1, "topic":topic }) #   দুটি  ভ্যারিয়েবলকে ট্যামপ্লেটে পাঠানো হয়েছে
+    paginator = Paginator(post1, 4)  # প্রতি পেজে ৪ টি করে পোষ্ট দেখানো হবে
+    page = request.GET.get('page')
+    try:
+        items = paginator.page(page)
+    except PageNotAnInteger:
+        items = paginator.page(1)
+    except EmptyPage:
+        items = paginator.page(paginator.num_pages)
+    index = items.number - 1
+    max_index = len(paginator.page_range)
+    start_index = index - 2 if index >= 2 else 0
+    end_index = index + 2 if index <= max_index else max_index
+    page_range = paginator.page_range[start_index:end_index]
+    return render(request,'category.html', {"post1":post1, "topic":topic, 'items': items, 'page_range': page_range, }) #   দুটি  ভ্যারিয়েবলকে ট্যামপ্লেটে পাঠানো হয়েছে
 
 def LogIn(request):      #(অথেনটিকেশন এর জন্য from django.contrib.auth import authenticate, login, logout এই মডিউলটি এড  করে নিতে হবে )
     if request.user.is_authenticated:                    # ইউজার যদি অথেন্টিকেটেড হয়
