@@ -146,11 +146,10 @@ MESSAGE_TAGS = {
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #GMAIL CONFIGRATIONS
-"""
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_HOST_USER = 'nabirhossain13@gmail.com'
-EMAIL_HOST_PASSWORD = '62247622'
+EMAIL_HOST_PASSWORD = 'N@b1r62247'
 EMAIL_USE_TLS = True
-"""
+
