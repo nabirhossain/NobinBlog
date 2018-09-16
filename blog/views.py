@@ -6,6 +6,8 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator  #  স
 from django.db.models import Q #  জ্যাঙ্গোর বিল্ট-ইন Q লুক আপ কল করা হয়েছে
 from .forms import CreateForm, registerUser, createAuthor, categoryForm
 from django.contrib import messages
+from django.views import View
+from .require import renderPdf
 
 ## registration with email imports
 from django.contrib.sites.shortcuts import get_current_site
@@ -231,3 +233,15 @@ def activate(request, uid, token):
         return HttpResponse("<h1>Account is activated. Now you can <a href='/login'>login</a></h1>")
     else:
         return HttpResponse("<h3>Invalid activation</h3>")
+
+class pdf(View):
+    def get(self, request, id):
+        try:
+            query = get_object_or_404(post, id=id)
+        except:
+            Http404('Content not found')
+        context = {
+            'post' : query
+        }
+        post_pdf = renderPdf('pdf.html', context)
+        return HttpResponse(post_pdf, content_type='application/pdf')

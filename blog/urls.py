@@ -15,6 +15,7 @@ urlpatterns = [
     path('register',views.register, name='register'),
     path('topics',views.ShowTopic, name='category'),
     path('create/topic',views.AddCategory, name='createTopic'),
+    path('pdf/<int:id>',views.pdf.as_view(), name='pdf'),
 
 
     #account confirmation url

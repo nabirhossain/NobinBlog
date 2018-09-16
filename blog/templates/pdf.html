@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compitable" content="ie=edge">
+    <title>pdf</title>
+    </head>
+    <body>
+    <img src="{{ post.post_image.url }}" alt="Image" class="img-responsive">
+    <h1 style="text-align: center;">{{ post.post_title }}</h1>
+    <p>{{ post.post_body|safe }}</p>
+    </body>
+    </html>
+
+
+<!-- https://codeburst.io/django-render-html-to-pdf-41a2b9c41d16   -->
